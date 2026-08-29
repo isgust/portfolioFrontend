@@ -1,6 +1,5 @@
 // Configuração da URL base da API
-// Em dev: http://localhost:8080
-// Em produção: URL do Render (definida via variável de ambiente VITE_API_URL)
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8080";
+const isProd = import.meta.env.PROD;
+const API_URL = import.meta.env.VITE_API_URL || (isProd ? "https://meuportfolio-kix9.onrender.com" : "http://localhost:8080");
 
 export default API_URL;
