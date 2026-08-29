@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 84% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 75%;
+
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 84% 60%;
+
+    --radius: 1rem;
+
+    /* Custom tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(0 84% 60%) 0%, hsl(25 95% 53%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 12%) 0%, hsl(0 0% 8%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.1) 0%, hsl(0 0% 100% / 0.05) 100%);
+    --shadow-glow: 0 0 40px hsl(0 84% 60% / 0.3);
+    --shadow-card: 0 25px 50px -12px hsl(0 0% 0% / 0.5);
+
+    --font-display: 'Poppins', 'Space Grotesk', sans-serif;
+    --font-body: 'Poppins', 'Inter', sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .section-slide {
+    @apply min-h-screen w-full flex items-center justify-center pt-16 pb-4 px-4 md:px-6 relative;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .shorts-card {
+    @apply w-full max-w-[400px] h-[calc(100vh-2rem)] md:h-[calc(100vh-3rem)] max-h-[900px];
+    @apply bg-card rounded-2xl md:rounded-3xl overflow-hidden border border-border/50;
+    box-shadow: var(--shadow-card);
+  }
+
+  .shorts-content {
+    @apply h-full w-full flex flex-col items-center justify-center p-6 text-center relative overflow-y-auto;
+  }
+
+  .shorts-action-btn {
+    @apply flex flex-col items-center gap-1 transition-all duration-200;
+  }
+
+  .shorts-action-icon {
+    @apply w-12 h-12 rounded-full bg-card border border-border/50 flex items-center justify-center;
+    @apply hover:bg-secondary transition-colors cursor-pointer;
+  }
+
+  .glass-card {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    @apply border border-border/50 rounded-xl;
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .skill-badge {
+    @apply px-3 py-1.5 rounded-full bg-secondary text-secondary-foreground font-medium text-xs;
+    @apply border border-border/50 transition-all duration-300;
+    @apply hover:bg-primary hover:text-primary-foreground hover:border-primary;
+  }
+
+  .nav-dot {
+    @apply w-3 h-3 rounded-full bg-muted-foreground/30 transition-all duration-300;
+    @apply hover:bg-muted-foreground;
+  }
+
+  .nav-dot.active {
+    @apply bg-primary scale-125;
+    box-shadow: var(--shadow-glow);
+  }
+
+  .project-card {
+    background: var(--gradient-card);
+    @apply rounded-xl p-4 border border-border/50 transition-all duration-500;
+    @apply hover:border-primary/50;
+    box-shadow: var(--shadow-card);
+  }
+
+  .project-card:hover {
+    box-shadow: var(--shadow-glow), var(--shadow-card);
+  }
+
+  /* Comment Panel */
+  .comment-panel {
+    transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .comment-panel-open {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .comment-panel-closed {
+    transform: translateX(-50%) translateY(110%);
+  }
+
+  /* Like particle */
+  .like-particle {
+    @apply absolute w-1.5 h-1.5 rounded-full bg-primary;
+    animation: particle-burst 0.6s ease-out forwards;
+    animation-delay: var(--delay, 0ms);
+    transform-origin: center;
+  }
+
+  /* Custom Sleek Dark Scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #ff0000;
+  }
+
+  /* Header Search Bar Exact Column Alignment with shorts-card */
+  @media (min-width: 768px) {
+    .header-search-aligned {
+      position: absolute !important;
+      left: 50% !important;
+      transform: translateX(calc(-50% - 32px)) !important;
+      width: 400px !important;
+      max-width: 400px !important;
+    }
+  }
+}
+
+@layer utilities {
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+
+  .animate-like-pop {
+    animation: likePop 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) forwards;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes likePop {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.5); }
+    60% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes particle-burst {
+    0% {
+      transform: rotate(var(--angle, 0deg)) translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(var(--angle, 0deg)) translateY(-24px) scale(0);
+      opacity: 0;
+    }
+  }
+
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+}
