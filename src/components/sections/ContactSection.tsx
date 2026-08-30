@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Github, Send, Phone, MapPin, MessageSquare } from "lucide-react";
+import { Mail, Linkedin, Github, Send, MessageSquare, MapPin } from "lucide-react";
 import ShortsLayout from "../ShortsLayout";
 import TechVideoBackground from "../TechVideoBackground";
 
@@ -35,7 +35,7 @@ const ContactSection = () => {
               <Send className="w-4 h-4 text-primary shrink-0 group-hover:translate-x-1 transition-transform" />
             </a>
 
-            {/* Phone / WhatsApp */}
+            {/* Direct WhatsApp Button (sem exibir o número na tela) */}
             <a 
               href="https://wa.me/5598991939476"
               target="_blank"
@@ -44,14 +44,14 @@ const ContactSection = () => {
             >
               <div className="flex items-center gap-3 min-w-0">
                 <div className="p-2.5 rounded-xl bg-accent/20 text-accent shrink-0">
-                  <Phone className="w-4 h-4" />
+                  <MessageSquare className="w-4 h-4" />
                 </div>
                 <div className="text-left min-w-0">
-                  <p className="text-[10px] text-muted-foreground font-mono">Telefone / WhatsApp</p>
-                  <p className="text-xs font-semibold text-foreground truncate">(98) 99193-9476</p>
+                  <p className="text-[10px] text-muted-foreground font-mono">WhatsApp Profissional</p>
+                  <p className="text-xs font-semibold text-foreground truncate">Enviar mensagem direta</p>
                 </div>
               </div>
-              <MessageSquare className="w-4 h-4 text-accent shrink-0 group-hover:scale-110 transition-transform" />
+              <Send className="w-4 h-4 text-accent shrink-0 group-hover:translate-x-1 transition-transform" />
             </a>
 
             {/* Social Links */}
