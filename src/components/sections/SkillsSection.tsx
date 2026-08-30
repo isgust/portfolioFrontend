@@ -8,9 +8,9 @@ const skillCategories = [
     icon: Code2,
     color: "primary",
     skills: [
-      { name: "APIs RESTful & POO", level: 62 },
-      { name: "Java (Spring Boot / Framework)", level: 60 },
-      { name: "Estruturas de Dados & Lógica", level: 55 },
+      { name: "Java (Spring Boot / POO)", level: 85 },
+      { name: "APIs RESTful & Arquitetura", level: 82 },
+      { name: "Estruturas de Dados & Lógica", level: 78 },
     ],
   },
   {
@@ -18,8 +18,8 @@ const skillCategories = [
     icon: Database,
     color: "accent",
     skills: [
-      { name: "MySQL & Spring Data JPA", level: 58 },
-      { name: "SQL & Modelagem Relacional", level: 52 },
+      { name: "MySQL & Spring Data JPA", level: 80 },
+      { name: "SQL & Modelagem Relacional", level: 76 },
     ],
   },
   {
@@ -27,8 +27,8 @@ const skillCategories = [
     icon: Layout,
     color: "primary",
     skills: [
-      { name: "HTML5, CSS3 & JavaScript", level: 55 },
-      { name: "React & Tailwind CSS", level: 48 },
+      { name: "HTML5, CSS3 & JavaScript", level: 78 },
+      { name: "React & Tailwind CSS", level: 72 },
     ],
   },
 ];
