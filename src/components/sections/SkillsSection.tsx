@@ -34,7 +34,7 @@ const skillCategories = [
 ];
 
 const tools = [
-  "Git & GitHub", "Spring Boot", "Suporte & HelpDesk", "Processos de Software", "Linux", "Arquitetura REST"
+  "Git & GitHub", "Spring Boot", "Suporte & HelpDesk", "Processos de Software", "Arquitetura REST"
 ];
 
 const SkillsSection = () => {
@@ -42,13 +42,13 @@ const SkillsSection = () => {
     <ShortsLayout sectionLabel="Minhas Habilidades" sectionNumber={3} totalSections={6} sectionId="skills">
       <div className="shorts-content flex flex-col justify-between py-6 relative overflow-hidden">
         <TechVideoBackground type="skills" />
-        
+
         <div className="relative z-10 w-full flex flex-col items-center my-auto px-2">
           <span className="text-primary text-xs font-semibold uppercase tracking-widest font-mono">Competências</span>
           <h2 className="text-2xl md:text-3xl font-bold font-display mt-0.5 mb-5">
             Habilidades <span className="gradient-text">Técnicas</span>
           </h2>
-          
+
           <div className="space-y-3 w-full">
             {skillCategories.map((cat, idx) => {
               const Icon = cat.icon;
@@ -66,7 +66,7 @@ const SkillsSection = () => {
                           <span className="text-[10px] font-mono text-muted-foreground">{skill.level}%</span>
                         </div>
                         <div className="h-1.5 bg-secondary rounded-full overflow-hidden">
-                          <div 
+                          <div
                             className="h-full rounded-full bg-gradient-to-r from-primary to-accent"
                             style={{ width: `${skill.level}%` }}
                           />

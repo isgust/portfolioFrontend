@@ -34,9 +34,9 @@ const SEARCH_INDEX: SearchItem[] = [
     id: "3",
     sectionId: "skills",
     title: "Habilidades Técnicas & Tecnologias",
-    description: "Java, Spring Boot, MySQL, React, Docker, Linux",
+    description: "Java, Spring Boot, MySQL, React, Docker",
     category: "Habilidades",
-    keywords: ["skills", "java", "spring", "mysql", "react", "typescript", "docker", "linux", "git", "scrum"],
+    keywords: ["skills", "java", "spring", "mysql", "react", "typescript", "docker", "git", "scrum"],
   },
   {
     id: "4",
@@ -246,11 +246,10 @@ const HeaderNavbar = () => {
               onClick={handleVoiceSearch}
               aria-label="Pesquisa por voz"
               title="Pesquisar por voz"
-              className={`p-1.5 rounded-full transition-all shrink-0 mr-1 focus-visible:ring-2 focus-visible:ring-primary outline-none ${
-                isListening
+              className={`p-1.5 rounded-full transition-all shrink-0 mr-1 focus-visible:ring-2 focus-visible:ring-primary outline-none ${isListening
                   ? "bg-primary text-white animate-pulse"
                   : "text-muted-foreground hover:text-primary"
-              }`}
+                }`}
             >
               {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
             </button>
